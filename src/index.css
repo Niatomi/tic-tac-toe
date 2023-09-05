@@ -1,11 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 body {
-  font: 1rem "Century Gothic", Futura, sans-serif;
-  color: #446976;
-  background: #CFE8EF;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  color: white;
+  background: #EF3054;
 }
   
-ol, ul {
-  padding-left: 2rem;
+li {
+  list-style: none;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+ol {
+  padding: 0;
+  width: 100%;
+}
+
+button, historyMoveBtn[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
+  width: 100%;
+  background: black;
+} 
+
+.history-move-btn-disabled {
+  cursor: default;
 }
   
 .board-row:after {
@@ -15,27 +41,25 @@ ol, ul {
 }
   
 .status {
-  font-size: 2rem;
   text-align: center;
   margin-bottom: .5rem;
 }
 
 .resetBtn {
   width: 100%;
-  border: 1rem solid #AED1E6;
+  font-family: 'VT323', monospace;
+  border: .5rem solid #FF6F59;
   font-size: 2rem;
-  background: #AED1E6;
-  color: #446976;
-  border-radius: 0 0 0.5rem 0.5rem;
+  background: #EF3054;
+  color: white;
+  margin-top: 1rem;
+
+  transition: background .2s;
 }
 
 .resetBtn:hover {
-  background: #446976;
+  background: #FF6F59;
   color: white;
-  border: 1rem solid #AED1E6;
-  
-  transition: 100ms background ease-in-out;
-  transition: 100ms color ease-in-out;
 }
 
 .wrapper {
@@ -50,9 +74,10 @@ ol, ul {
 }
 
 .square {
-  background: #A0C4E2;
-  color: #446976;
-  border: 1rem solid #AED1E6;
+  background: #EF3054;
+  font-family: monospace;
+  color: white;
+  border: 1rem solid #FF6F59;
   float: left;
   font-size: 4rem;
   font-weight: bold;
@@ -64,8 +89,7 @@ ol, ul {
   text-align: center;
   width: 10rem;
 
-  transition: 100ms background ease-in-out;
-  transition: 100ms color ease-in-out;
+  transition: background .2s, color .2s;
 }
 
 .square:focus {
@@ -73,8 +97,8 @@ ol, ul {
 }
 
 .square:hover {
-  background: #5b8d9f;
-  color: white;
+  background: #B2B09B;
+  color: #FF6F59;
 }
 
 .kbd-navigation .square:focus {
@@ -83,11 +107,83 @@ ol, ul {
 
 .game {
   display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.game-board {
+  flex-shrink: 0;
+}
+
+.game-info {
+  width: 100%;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.game-info {
-  margin-left: 20px;
+@media (max-width: 1650px) {
+
+  .main-content-wrapper {
+    max-width: 100%;
+  }
+  
+}
+
+
+
+@media (max-width: 850px) {
+  .square {
+    background: #EF3054;
+    font-family: monospace;
+    color: white;
+    border: 0.4rem solid #FF6F59;
+    float: left;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 34px;
+    height: 5rem;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 5rem;
+
+    transition: background .2s, color .2s;
+  }
+
+  .game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .status {
+    font-size: 2rem;
+  }
+
+  .square:hover {
+    background: none;
+    color: white;
+  }
+
+  button, historyMoveBtn[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-size: 2rem;
+  
+    width: 100%;
+    background: black;
+  }
+  
 }
   
